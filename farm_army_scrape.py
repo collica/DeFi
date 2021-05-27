@@ -5,6 +5,23 @@ import json
 Prices = requests.get('https://farm.army/api/v0/prices')
 Farms = requests.get('https://farm.army/api/v0/farms/0x71cb1790bff3ad5339982b91efc08ddca958de0c')
 
+
+def GetKeySafely(dict, key1, key2):
+    # returnString = ""
+    # print(key1 + " searching")
+    # print(key1)
+    # print("in dict")
+    # print(dict)
+    key1Obj = dict.get(key1, "not available")
+    # print('Key1OIbj::')
+    # print(key1Obj)
+    if key1Obj == "not available":
+        returnString = "not available"
+    else:
+        returnString = key1Obj.get(key2, "not available")
+
+    return returnString;
+
 #PriceFrame = pd.DataFrame.transpose(pd.json_normalize(json.loads(Prices.text)))
 #print(PriceFrame)
 #PriceFrame.to_csv(r'Z:\Python\DeFI\farmarmy_prices.csv')
@@ -26,17 +43,62 @@ keys2 = dict2
 values = dict1.values()
 items = dict1.items()
 
-# print(keys)
-# print(values)
-# print(items)
-
 dictMaster = {}
 count = 0
+farmPrint = {}
 
-print(Platform)
-for x in Platform['farms']:
-    for y in x['farm']:
-        dictMaster[y['name']] = y['provider']
+# print(Platform)
+for x in Platform:
+    # tempDict = [500]
+    tempDict = x['farms']
+    count = count + 1
+
+    for y in tempDict:
+        deposit = y['deposit']['usd']
+        farm = y.get('farm', "not available")
+        tvl = farm.get('tvl', "not available")
+        farmPrint = farm
+        yieldsApy = GetKeySafely(farm, "yield", "apy")
+        tvlUsd = GetKeySafely(farm, "tvl", "usd")
+        # reward = GetKeySafely(y, "rewards", "usd")
+        rewards = y.get('rewards', "not available")
+
+        if rewards == "not available":
+            reward = "not available"
+        else:
+            if not rewards:
+                reward = "not available"
+            else:
+                reward = rewards[0].get('usd', "not available")
+        dictMaster[count] = {
+            'name': farm['name'],
+            'yieldsApy': yieldsApy,
+            'tvlUSD': tvlUsd,
+            'reward': reward,
+            'provider': y['farm']['provider'],
+            'depositUSD': deposit
+        }
+        count = count + 1
+
+
+
+print(dictMaster)
+# print(farmPrint)
+# for x in Platform:
+#     tempDict = x['name']
+#     dictMaster[count] = tempDict
+#     count = count + 1
+    # for y in tempDict:
+        # dictMaster[count] = y
+        # count = count + 1
+        # temp = {}
+        # temp = {
+        #     "provider" : y['provider']
+        # }
+        # dictMaster[count] = temp
+        # count = count + 1
+
+
 
 # dictMaster = {}
 # count = 0
@@ -47,7 +109,6 @@ for x in Platform['farms']:
 #     count = count + 1
 #
 # print('NEW DICT:')
-print(dictMaster)
 #
 #
 # Deposit = ((RawFarmFrame['platforms'][0]['farms'])[0]['deposit'])['usd']
