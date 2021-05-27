@@ -1,3 +1,4 @@
+from Keys import *
 from bscscan import BscScan
 from pycoingecko import CoinGeckoAPI
 from binance.client import Client
@@ -7,23 +8,13 @@ import defi.defi_tools as dft
 import json
 import csv
 
-api_key = 'IqBPOWuNJbxo5ty3CSDeqHdVDZTjcyjShboh3VXoZPl4JoUY2iIb1sk0ee8OFIrH'
-secret_key = 'UULsTDtOGvQQBQ55iF6RB0NEB0shvqcyw7mAWGodX1l0qS6XK84R5H0nqDT6b3ej'
-
-bsc = BscScan('INBSQ8WQ1IJB1UGZHNB6H4KMSV5Q983N8U')
+bsc = BscScan(bsc_key)
 cg = CoinGeckoAPI()
 client = Client(api_key, secret_key)
-MY_WALLET = '0x71cb1790bff3ad5339982b91efc08ddca958de0c'
 
 #quotes = pd.DataFrame(client.get_orderbook_tickers())
 #print(quotes)
 #quotes.to_csv('binance_snap_quotes.csv', index=False, header=True)
-
-
-
-
-
-
 
 CAKE_BNB = '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0'
 
@@ -38,8 +29,6 @@ print('Contract Balance BNB: ' + BNBBALANCE)
 
 total_supply_CAKE_BNB = float(bsc.get_total_supply_by_contract_address(contract_address=CAKE_BNB)) / 1000000000000000000
 print('Total Supply CAKE_BNB: ' + str(total_supply_CAKE_BNB))
-
-
 
 
 #if __name__ == '__main__':
