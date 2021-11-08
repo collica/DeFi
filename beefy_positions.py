@@ -38,7 +38,8 @@ beefy_ftm_contracts = [
     '0x49c68eDb7aeBd968F197121453e41b8704AcdE0C', #scream ftm
     '0x97927abfe1abbe5429cbe79260b290222fc9fbba', #scream btc
     '0xf782e675b93d22fd810dca4149d29ab32e5b2972', #scream-ftm
-    '0xeee5ea8949f622090cfc16d141305d5120df8da4' #tricrypto
+    '0xeee5ea8949f622090cfc16d141305d5120df8da4', #tricrypto
+    '0xda3c57a81ace16b2cc34e8872e886575f8ccf672' #renBTC
                 ]
 
 beefy_avax_contracts = [
@@ -93,11 +94,6 @@ for x in beefy_bsc_contracts:
 
 bsc_df = pd.DataFrame(list(zip(beefy_bsc_contracts, bsc_chain_list, bsc_name_list, bsc_symbol_list, bsc_decimal_list, bsc_moo_balance_list, bsc_lp_qty_list)), columns=['Contract', 'Chain', 'Name', 'Symbol', 'Decimals', 'MooToken Qty', 'LP Qty'])
 
-bsc_token_chain_list = []
-bsc_token_name_list = []
-bsc_token_symbol_list = []
-bsc_token_decimal_list = []
-bsc_token_qty_list = []
 
 ########################################### FANTOM ###########################################
 ftm_chain_list = []
