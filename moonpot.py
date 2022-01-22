@@ -16,10 +16,13 @@ gate_abi = json.loads('[{"inputs":[{"internalType":"contract IMooToken","name":"
 
 contract_dict = {'cake':
                       {'MoonContract':'0xc812402a36a4e4d6331afa89bf92a89f8b6bd9c7',
-                       'GateContract':'0x3789840c8697Aee0d02159003D7501588De3ceD9'},
+                       'GateContract':'0xa5fEBEB2FfAEC64D3cEE5e24829934f8DC3BDC28'},
                 'pots-bnb':
                       {'MoonContract':'0x2f4a26A1B540255B5AA2c2e4A2d142ae2765b186',
-                       'GateContract':'0xA9638f46b23FcfEEc9E000344D9b6ea7160b23Eb'}
+                       'GateContract':'0xA9638f46b23FcfEEc9E000344D9b6ea7160b23Eb'},
+                 'bifi':
+                     {'MoonContract': '0xd763a0377bb40f7b79839ea50aac75ff67cb9eae',
+                      'GateContract':'0xb4651e8A3E70d0BE1B1D1241C3679F1572c23e48'}
                 }
 
 keys = dict.keys(contract_dict)
