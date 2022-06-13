@@ -5,6 +5,12 @@ print('*********************************************')
 
 while True:
     try:
+        exec(open('bitcoin.py').read())
+    except:
+        print("***Bitcoin Fail*** " + datetime.now().strftime("%H:%M:%S"))
+    else:
+        print("Bitcoin Success: " + datetime.now().strftime("%H:%M:%S"))
+    try:
         exec(open('cmc.py').read())
     except:
         print("***CMC Fail*** " + datetime.now().strftime("%H:%M:%S"))
@@ -19,9 +25,21 @@ while True:
     try:
         exec(open('gas_tokens.py').read())
     except:
-        print("***Gas Tokens Fail*** " + datetime.now().strftime("%H:%M:%S"))
+        print("***L1 Fail*** " + datetime.now().strftime("%H:%M:%S"))
     else:
-        print("Gas Tokens Success: " + datetime.now().strftime("%H:%M:%S"))
+        print("L1 Success: " + datetime.now().strftime("%H:%M:%S"))
+    try:
+        exec(open('correlations 6m.py').read())
+    except:
+        print("***Correlations 6m Fail*** " + datetime.now().strftime("%H:%M:%S"))
+    else:
+        print("Correlations 6m Success: " + datetime.now().strftime("%H:%M:%S"))
+    try:
+        exec(open('correlations 12m.py').read())
+    except:
+        print("***Correlations 12m Fail*** " + datetime.now().strftime("%H:%M:%S"))
+    else:
+        print("Correlations 12m Success: " + datetime.now().strftime("%H:%M:%S"))
     try:
         exec(open('beefy_positions.py').read())
     except:
@@ -34,48 +52,24 @@ while True:
         print("***Beefy Prices & Yields Fail*** " + datetime.now().strftime("%H:%M:%S"))
     else:
         print("Beefy Prices & Yields Success: " + datetime.now().strftime("%H:%M:%S"))
-    # try:
-    #     exec(open('moonpot.py').read())
-    # except:
-    #     print("***Moonpot Positions Fail*** " + datetime.now().strftime("%H:%M:%S"))
-    # else:
-    #     print("Moonpot Positions Success: " + datetime.now().strftime("%H:%M:%S"))
-    # try:
-    #     exec(open('moonpot_prices_yields.py').read())
-    # except:
-    #     print("***Moonpot Prices & Yields Fail*** " + datetime.now().strftime("%H:%M:%S"))
-    # else:
-    #     print("Moonpot Prices & Yields Success: " + datetime.now().strftime("%H:%M:%S"))
     try:
         exec(open('helium.py').read())
     except:
         print("***Helium Fail*** " + datetime.now().strftime("%H:%M:%S"))
     else:
         print("Helium Success: " + datetime.now().strftime("%H:%M:%S"))
-    try:
-        exec(open('ltc_doge.py').read())
-    except:
-        print("***LTC/Doge Fail*** " + datetime.now().strftime("%H:%M:%S"))
-    else:
-        print("LTC/Doge Success: " + datetime.now().strftime("%H:%M:%S"))
-    try:
-        exec(open('cardano.py').read())
-    except:
-        print("***Cardano Fail*** " + datetime.now().strftime("%H:%M:%S"))
-    else:
-        print("Cardano Success: " + datetime.now().strftime("%H:%M:%S"))
     # try:
-    #     exec(open('wonderland.py').read())
+    #     exec(open('ltc_doge.py').read())
     # except:
-    #     print("***Wonderland Fail*** " + datetime.now().strftime("%H:%M:%S"))
+    #     print("***LTC/Doge Fail*** " + datetime.now().strftime("%H:%M:%S"))
     # else:
-    #     print("Wonderland Success: " + datetime.now().strftime("%H:%M:%S"))
+    #     print("LTC/Doge Success: " + datetime.now().strftime("%H:%M:%S"))
     # try:
-    #     exec(open('hector.py').read())
+    #     exec(open('cardano.py').read())
     # except:
-    #     print("***Hector Fail*** " + datetime.now().strftime("%H:%M:%S"))
+    #     print("***Cardano Fail*** " + datetime.now().strftime("%H:%M:%S"))
     # else:
-    #     print("Hector Success: " + datetime.now().strftime("%H:%M:%S"))
+    #     print("Cardano Success: " + datetime.now().strftime("%H:%M:%S"))
     print('*********************************************')
     time.sleep(1000)
 

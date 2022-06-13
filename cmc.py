@@ -3,7 +3,7 @@ from requests import Session
 from keys import cmc
 import pandas as pd
 
-symbols = ['BTC,ETH,BNB,MATIC,FTM,KDA,AVAX,CKB,HNT,AETH,HNS,DOGE,LTC,ATOM,ALGO,DOT,HEC,WSHEC,TIME,SOL,ONE,WAGMI']
+symbols = ['BTC,ETH,BNB,MATIC,FTM,KDA,AVAX,CKB,HNT,AETH,HNS,DOGE,LTC,ATOM,ALGO,DOT,HEC,WSHEC,TIME,SOL,ONE,WAGMI,mSOL']
 
 parameters = {
   'symbol': symbols,

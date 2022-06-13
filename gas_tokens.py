@@ -16,9 +16,7 @@ payload = json.dumps({
   "jsonrpc": "2.0",
   "id": 1,
   "method": "hmyv2_getBalance",
-  "params": [
-    "0x47F5D61154963f2353766dbAb595707cd5Ed5bBf"
-  ]
+  "params": [bnb_wallet]
 })
 headers = {
   'Content-Type': 'application/json'

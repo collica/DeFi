@@ -10,8 +10,8 @@ import seaborn as sns
 import matplotlib.dates as mdates
 import plotly.express as px
 
-start = dt.datetime(2021, 7, 17)
-end = dt.datetime(2022, 1, 17)
+start = dt.datetime.now() - dt.timedelta(days=180)
+end = dt.datetime.now()
 
 #btc
 btc = web.DataReader("BTC-USD", 'yahoo', start, end)  # Collects data
@@ -110,9 +110,14 @@ MOVR.reset_index(inplace=True)
 crypto["MOVR"]= MOVR["Adj Close"]
 crypto[ 'MOVR_7DAY_MA' ] = crypto.MOVR.rolling( 7).mean()
 
+#NEAR
+NEAR = web.DataReader("NEAR-USD", 'yahoo', start, end)  # Collects data
+NEAR.reset_index(inplace=True)
+crypto["NEAR"]= NEAR["Adj Close"]
+crypto[ 'NEAR_7DAY_MA' ] = crypto.NEAR.rolling( 7).mean()
+
 crypto.set_index("Date", inplace=True)
-print(crypto[['BTC', 'ETH', 'SOL', 'AVAX', 'FTM', 'BNB', 'MATIC', 'ADA', 'AAVE', 'CRV', 'BIFI', 'ONE', 'LUNA', 'CRO', 'ATOM', 'MOVR']].corr())
-df = pd.DataFrame(crypto[['BTC', 'ETH', 'SOL', 'AVAX', 'FTM', 'BNB', 'MATIC', 'ADA', 'AAVE', 'CRV', 'BIFI', 'ONE', 'LUNA', 'CRO', 'ATOM', 'MOVR']].corr())
+df = pd.DataFrame(crypto[['BTC', 'ETH', 'SOL', 'AVAX', 'FTM', 'BNB', 'MATIC', 'ADA', 'AAVE', 'CRV', 'BIFI', 'ONE', 'LUNA', 'CRO', 'ATOM', 'MOVR', 'NEAR']].corr())
 
 df.to_csv(r'Z:\Python\DeFI\correlations_6m.csv', index=True)
 
